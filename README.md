@@ -1,6 +1,10 @@
 
 # react-native-easy-address-picker
 
+![GitHub set up](https://github.com/OneWeber/react-native-EZAddressPicker/raw/master/logo/screen1.jpg)
+![GitHub set up](https://github.com/OneWeber/react-native-EZAddressPicker/raw/master/logo/screen2.jpg)
+
+
 ## Getting started
 
 `$ npm install react-native-easy-address-picker --save`
@@ -33,6 +37,39 @@
   	```
       compile project(':react-native-easy-address-picker')
   	```
+    
+## Show some message     
+```js
+  import RNEasyAddressPicker from 'react-native-easy-address-picker';
+  
+  <View style={{flex: 1}}>
+    <Text onPress={()=>{
+          this.picker.showPicker()
+      }}>选择地区</Text>
+      <RNEasyAddressPicker
+          hasCountry={true}
+          ref={picker => this.picker = picker}
+          selectCountry={(index) => {}}
+          selectCity={(index) => {}}
+          clickConfirmBtn={(data) => {console.log(data)}}
+      />
+  </View>
+  ```
+## Props
+Property | Default | Description
+--------- | ------------- | ------------
+hasCountry | false | When it is true, it is the world region, and when it is false, it is the China region
+confirmBtnColor | '#14c5ca' | the color of confirmbutton
+confirmBtnText | 确定 | the text of confirmbutton
+cancleBtnColor | '#999' | the color of canclebutton
+backdropColor | 'rgba(0,0,0,.3)' | The background color of the shadow layer
+selectCountry | () => {} | The function that fires when a country is selected
+selectCity | () => {} | The function that fires when a city is selected
+selectProvince | () => {} | The function that fires when a province is selected
+selectRegion | () => {} | The function that fires when a region is selected
+clickConfirmBtn | () => {} | The function triggered when the ok button is clicked will return the currently selected value
+isRadius | true | Do I need rounded corners
+title | 选择地区 | The title of the default selection box
 
 
 ## Usage
